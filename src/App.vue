@@ -3,9 +3,20 @@
     First name: {{ firstName }} <br>
     Last Name: {{ lastName }}
   </div>
+  <div>
+    <div
+       v-for="(obj, index) in todos" 
+       v-bind:key="obj.id" 
+       class="todos-item"
+    >
 
-  <div v-for="obj in todos" v-bind:key="obj.id" class="todos-item">
-    {{ obj.title }}
+      <img 
+        v-bind:src="obj.imgSrc"
+        v-bind:alt="obj.imgAlt"
+      >
+      {{ index }} - {{ obj.title }}
+    </div>
+
   </div>
 </template>
 
@@ -27,31 +38,41 @@ export default {
           "userId": 1,
           "id": 1,
           "title": "delectus aut autem",
-          "completed": false
+          "completed": false,
+          "imgSrc:": 'http://placekitten.com/150',
+          "imgAlt": "kitten Photo"
         },
         {
           "userId": 1,
           "id": 2,
           "title": "quis ut nam facilis et officia qui",
-          "completed": false
+          "completed": false,
+          "imgSrc:": 'http://placekitten.com/150',
+          "imgAlt": "kitten Photo"
         },
         {
           "userId": 1,
           "id": 3,
           "title": "fugiat veniam minus",
-          "completed": false
+          "completed": false,
+          "imgSrc:": 'http://placekitten.com/150',
+          "imgAlt": "kitten Photo"
         },
         {
           "userId": 1,
           "id": 4,
           "title": "et porro tempora",
-          "completed": true
+          "completed": true,
+          "imgSrc:": 'http://placekitten.com/150',
+          "imgAlt": "kitten Photo"
         },
         {
           "userId": 1,
           "id": 5,
           "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-          "completed": false
+          "completed": false,
+          "imgSrc:": 'http://placekitten.com/150',
+          "imgAlt": "kitten Photo"
         }
       ]
 
