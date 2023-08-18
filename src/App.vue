@@ -1,26 +1,19 @@
 <template>
-  <AppHeader v-if="showHeader"/>
   <div v-show="showName">
     First name: {{ firstName }} <br>
     Last Name: {{ lastName }}
   </div>
 
-  <div v-if="accessLevel === 'admin'">Admin</div>
-  <div v-else-if="accessLevel === 'marketing'">Marketing</div>
-  <div v-else>User</div>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div v-for="obj in todos" v-bind:key="obj.id" class="todos-item">
+    {{ obj.title }}
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    AppHeader
   },
   data(){
     return{
@@ -28,7 +21,39 @@ export default {
       firstName: "Jon",
       lastName: "Snow",
       showName: false,
-      accessLevel: "admin"
+      accessLevel: "admin",
+      todos: [
+        {
+          "userId": 1,
+          "id": 1,
+          "title": "delectus aut autem",
+          "completed": false
+        },
+        {
+          "userId": 1,
+          "id": 2,
+          "title": "quis ut nam facilis et officia qui",
+          "completed": false
+        },
+        {
+          "userId": 1,
+          "id": 3,
+          "title": "fugiat veniam minus",
+          "completed": false
+        },
+        {
+          "userId": 1,
+          "id": 4,
+          "title": "et porro tempora",
+          "completed": true
+        },
+        {
+          "userId": 1,
+          "id": 5,
+          "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+          "completed": false
+        }
+      ]
 
     }
   }
@@ -36,12 +61,19 @@ export default {
 </script>
 
 <style>
+.todos-item{
+  background-color: #000;
+  margin: 0 0 5px 0;
+  padding: 3px 6px;
+  color: #fff;
+
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin:60px
 }
 </style>
